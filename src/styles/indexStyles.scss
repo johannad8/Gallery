@@ -3,8 +3,8 @@ $theme-font: verdana, sans-serif;
 
 body {
   background-color: blue;
-  font: $theme-font;
+  font-family: $theme-font;
   h1, h2 {
-      color: $themeColor-Dark
+      color: $themeColor-Dark;
   }
 }
