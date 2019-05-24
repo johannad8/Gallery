@@ -2,8 +2,8 @@
 $theme-font: verdana, sans-serif;
 
 body {
+  background-color: blue;
   font: $theme-font;
-  background-color: $themeColor-Light;
   h1, h2 {
       color: $themeColor-Dark
   }
