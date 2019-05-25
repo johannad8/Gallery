@@ -1,0 +1,12 @@
+@import 'base';
+//@import '_layout';
+//@import 'components';
+$theme-font: verdana, sans-serif;
+
+body {
+  background-color: blue;
+  font-family: $theme-font;
+  h1, h2 {
+      color: $themeColor-Dark;
+  }
+}
