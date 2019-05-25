@@ -22,16 +22,19 @@
     <main>
       <article class="gallery-container">
 
+        <section class="photo-buttons">
+          <button class="btn" id="btn-prev">Previous</button>
+          <button class="btn" id="btn-next">Next</button>
+          <p id="errorText"></p>
+        </section>
+        
         <section class="photo-container">
           <header>
             <h1>Photo Gallery</h1>
           </header>
-          <figure class="photo__block">Photo block</figure>
-        </section>
-
-        <section class="photo-buttons">
-          <button class="btn btn__prev">Backward</button>
-          <button class="btn btn__next">Forward</button>
+          <figure class="photo__block">
+            <img id="main_photo" src="" />
+          </figure>
         </section>
 
       </article>
