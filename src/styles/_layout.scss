@@ -1,1 +1,9 @@
 // Contains stylings for layout like the face of the container and grid-systems
+
+body {
+  background-color: blue;
+  font-family: $theme-font;
+  h1, h2 {
+      color: $themeColor-Dark;
+  }
+}
