@@ -1,23 +1,20 @@
 // Contains stylings for layout like the face of the container and grid-systems
 
-body {
-  background-color: #5C7793;
-  font-family: $theme-font;
-  h1, h2 {
-      color: $themeColor-Dark;
-  }
-
-  .gallery-container {
-    .photo-container {
-
-    }
-  }
+.top-heading,
+.photo-buttons,
+.image-container,
+.footer-text {
+  @include flexbox;
+  @include justify-content(center);
 }
-
-.photo__block {
-  position: relative;
-  height: auto;
-  #main_photo {
-    width: 100%;
+.footer-text {
+  @include md {
+    font-size: 3em;
+  }
+  @include lg {
+    font-size: 10em;
+  }
+  @include xl {
+    font-size: 10em;
   }
 }

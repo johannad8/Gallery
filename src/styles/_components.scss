@@ -1,1 +1,19 @@
 // Contains stylings for components like buttons, navbars, sliders, carousel
+
+// Buttons //
+.btn {
+ color: $white;
+ text-decoration: none;
+ padding: 10px 15px;
+ border-radius: 30px;
+ font-size: 30px;
+ outline: none;
+ margin: 0 2em;
+}
+
+.btn--blue {
+  @include button-bg($themeColor-KashmirBlue);
+}
+
+
+// Arrows //

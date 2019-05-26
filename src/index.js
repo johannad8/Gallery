@@ -9,7 +9,7 @@ const apiKey = '12592371-8ef86ca20acb1e557318b1906';
 
 async function getImagesFromApi(page) {
   try {
-    const response = await fetch('https://pixabay.com/api/?key='+apiKey+'&q=horses&page='+page+'&per_page=3');
+    const response = await fetch('https://pixabay.com/api/?key='+apiKey+'&q=horses+brown&page='+page+'&per_page=3');
 
     if (response.status !== 200) {
       throw 'Could not fetch images, response is: ' + response.statusText;

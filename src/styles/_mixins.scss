@@ -61,10 +61,42 @@ $screen-xl-min: 1200px; // Extra large screens
 @mixin button-bg($bg) {
   background: $bg;
   &:hover {
-    //background: darken($bg, 8%);
+    background: darken($bg, 8%);
     transition: all 0.3s ease;
   }
   &:active {
-    //background: darken($bg,25%);
+    background: darken($bg,25%);
   }
+}
+
+@mixin flexbox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin justify-content($value: flex-start) {
+  @if $value == flex-start {
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -ms-flex-pack: start;
+  } @else if $value == flex-end {
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    -ms-flex-pack: end;
+  } @else if $value == space-between {
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+  } @else if $value == space-around {
+    -ms-flex-pack: distribute;
+  } @else {
+    -webkit-box-pack: $value;
+    -moz-box-pack: $value;
+    -ms-flex-pack: $value;
+  }
+  -webkit-justify-content: $value;
+  justify-content: $value;
 }
