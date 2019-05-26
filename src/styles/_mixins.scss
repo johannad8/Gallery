@@ -1,5 +1,3 @@
-/*** Mixins ***/
-
 // Breakpoints (Use @include sm{} inside a div)
 $screen-sm-min: 576px; // Small screens
 $screen-md-min: 768px; // Medium screens
@@ -57,18 +55,19 @@ $screen-xl-min: 1200px; // Extra large screens
 }
 
 
-// Button (Use @include button-bg(#hex-code); )
+// Button (Use @include button-bg(#hex-code); in scss)
 @mixin button-bg($bg) {
   background: $bg;
   &:hover {
     background: darken($bg, 8%);
-    transition: all 0.3s ease;
+    @include transition(all .3s ease);
   }
   &:active {
-    background: darken($bg,25%);
+    background: darken($bg, 25%);
   }
 }
 
+// Flexbox (Use @include flexbox;)
 @mixin flexbox {
   display: -webkit-box;
   display: -moz-box;
@@ -77,22 +76,27 @@ $screen-xl-min: 1200px; // Extra large screens
   display: flex;
 }
 
+// Flexbox justify-content (Use @include justify-content($args..) )
 @mixin justify-content($value: flex-start) {
   @if $value == flex-start {
     -webkit-box-pack: start;
     -moz-box-pack: start;
     -ms-flex-pack: start;
-  } @else if $value == flex-end {
+  }
+  @else if $value == flex-end {
     -webkit-box-pack: end;
     -moz-box-pack: end;
     -ms-flex-pack: end;
-  } @else if $value == space-between {
+  }
+  @else if $value == space-between {
     -webkit-box-pack: justify;
     -moz-box-pack: justify;
     -ms-flex-pack: justify;
-  } @else if $value == space-around {
+  }
+  @else if $value == space-around {
     -ms-flex-pack: distribute;
-  } @else {
+  }
+  @else {
     -webkit-box-pack: $value;
     -moz-box-pack: $value;
     -ms-flex-pack: $value;

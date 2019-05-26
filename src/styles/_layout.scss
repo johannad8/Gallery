@@ -1,20 +1,18 @@
 // Contains stylings for layout like the face of the container and grid-systems
 
 .top-heading,
-.photo-buttons,
+.buttons,
 .image-container,
 .footer-text {
   @include flexbox;
   @include justify-content(center);
 }
+
 .footer-text {
   @include md {
     font-size: 3em;
   }
   @include lg {
-    font-size: 10em;
-  }
-  @include xl {
-    font-size: 10em;
+    font-size: 3em;
   }
 }

@@ -29,13 +29,11 @@ html {
   height: 100%;
 }
 
-body,
-main,
-article,
-section {
+body {
+  @include flexbox;
+  justify-content: center;
   flex-wrap: wrap;
 }
-
 
 *,
 *::before,
@@ -43,17 +41,22 @@ section {
   box-sizing: inherit;
 }
 
+h1,
 p {
-  color: black;
-}
-h1 {
   color: $themeColor-Dark;
+}
+
+h1 {
   text-align: center;
-  @include md {
+  @include sm {
     font-size: 14em;
   }
+
+  @include md {
+    font-size: 12em;
+  }
   @include lg {
-    font-size: 14em;
+    font-size: 10em;
   }
   @include xl {
     font-size: 10em;
