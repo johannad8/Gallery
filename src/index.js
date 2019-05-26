@@ -31,17 +31,17 @@ async function getImage(offset) {
   if (imageObjectArray === undefined || imageObjectArray.length === 0) {
     imageObjectArray = await getImagesFromApi(imagePage);
   }
-  // if we are on the last image we need to fetch next page
+  // If we are on the last image we need to fetch next page
   else if (currentImage === imageObjectArray.length) {
     imagePage++;
     currentImage = 0;
     imageObjectArray = await getImagesFromApi(imagePage);
   }
-  // if we are on first page and first image we cant go back
+  // If we are on first page and first image we cant go back
   else if (currentImage < 0 && imagePage === 1) {
     currentImage = 0;
   }
-  // if we are on any other page and trying to go back fetch the previous page
+  // If we are on any other page and trying to go back fetch the previous page
   else if (currentImage < 0) {
     imagePage--;
     imageObjectArray = await getImagesFromApi(imagePage);
@@ -49,7 +49,7 @@ async function getImage(offset) {
   }
 
   if (imageObjectArray !== undefined && imageObjectArray.length > 0) {
-    document.getElementById('main_photo').src = imageObjectArray[currentImage].largeImageURL;
+    document.getElementById('image__item').src = imageObjectArray[currentImage].largeImageURL;
   }
 }
 
