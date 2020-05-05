@@ -2,28 +2,33 @@ import _ from 'lodash';
 import './styles/main.scss';
 import 'babel-polyfill';
 
-var imageObjectArray = [];
-var imagePage = 1;
-var currentImage = 0;
-const apiKey = '12592371-8ef86ca20acb1e557318b1906';
+var imageObjectArray = []; // The image array with properties, the array is empty here;
+var imagePage = 1; // Api page starts on 1
+var currentImage = 0; // When the page is loaded -> starts on image 0
+const apiKey = '12592371-8ef86ca20acb1e557318b1906'; // The key to Pixabay API, constant -> can't be changed
 
+// Asynchronous function (ES6), to fetch images from API
 async function getImagesFromApi(page) {
+  // Try and catch -> a purpose to let the user to know if it's going well(image is visible/true) or not(error-text).
   try {
     const response = await fetch('https://pixabay.com/api/?key='+apiKey+'&q=horses+brown&page='+page+'&per_page=3');
 
+    // We check if the response is OK (status is 200), if not we throw an error that we couldnt fetch the images
     if (response.status !== 200) {
       throw 'Could not fetch images, response is: ' + response.statusText;
     }
-    const responseAsJson = await response.json();
-    //debugger;
-    return responseAsJson.hits;
+
+    const responseAsJson = await response.json(); // Fetch the data from the body as JSON format.
+    return responseAsJson.hits; // Returns the data from hits (info about images)
   }
+  // Catching the error and prints out the error-text if the try isn't working.
   catch (err) {
     document.getElementById("errorText").innerHTML = 'Could not fetch images: ' + err;
-    return [];
+    return []; // Returns an empty array because of errors
   }
 }
 
+// Get an image. Send in an offset to move forward, backward or send in 0 to return the current image
 async function getImage(offset) {
   currentImage = currentImage + offset;
 
@@ -47,10 +52,9 @@ async function getImage(offset) {
     imageObjectArray = await getImagesFromApi(imagePage);
     currentImage = imageObjectArray.length - 1;
   }
-
+  // If we have at least one image in the array we show it
   if (imageObjectArray !== undefined && imageObjectArray.length > 0) {
     document.getElementById('image__item').src = imageObjectArray[currentImage].largeImageURL;
-    //document.getElementById('image__user').innerHTML = imageObjectArray[currentImage].user;
   }
 }
 
