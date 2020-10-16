@@ -1,0 +1,64 @@
+// Contains stylings for utilitites like resets, variables, mixins, themes.
+
+/*** Imports ***/
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+
+/*** Theme-stylings ***/
+
+// Basic colours
+$white: #fff;
+$black: #000;
+
+// Theme Colors
+$themeColor-Light: #f3e2c7;
+$themeColor-Dark:#b68d4c;
+$themeColor-KashmirBlue: #5C7793;
+
+// Theme Fonts
+$theme-font: 'Poiret One', cursive;
+
+
+/*** Base HTML-stylings ***/
+html {
+  box-sizing: border-box;
+  background-color: $themeColor-KashmirBlue;
+  font-family: $theme-font;
+  @include flexbox;
+  flex: 1 1 20em;
+  height: 100%;
+}
+
+body {
+  @include flexbox;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+h1,
+p {
+  color: $themeColor-Dark;
+}
+
+h1 {
+  text-align: center;
+  @include sm {
+    font-size: 14em;
+  }
+
+  @include md {
+    font-size: 12em;
+  }
+  @include lg {
+    font-size: 10em;
+  }
+  @include xl {
+    font-size: 10em;
+  }
+}
